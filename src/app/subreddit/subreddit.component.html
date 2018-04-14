@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="list-group" *ngIf="subreddit">
+    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start"
+    *ngFor="let post of subreddit.data.children"
+    >
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{ post.data.title }}</h5>
+        <!--<small>{{ post.data.created_utc | date:'short' }}</small>-->
+      </div>
+      <p class="mb-1">{{ post.data.author }}</p>
+    </a>
+  </div>
+</div>
+
