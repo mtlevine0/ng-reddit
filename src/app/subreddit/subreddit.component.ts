@@ -11,13 +11,14 @@ import { Subreddit } from '../subreddit.interface';
 })
 export class SubredditComponent implements OnInit {
   subreddit: Subreddit;
+  subredditId: string;
 
   constructor(private subredditService: SubredditService, private route: ActivatedRoute) {
    }
 
   ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('subreddit');
-    this.loadSubreddit(id);
+    this.subredditId = this.route.snapshot.paramMap.get('subreddit');
+    this.loadSubreddit(this.subredditId);
   }
 
   loadSubreddit(subreddit: string): void {
