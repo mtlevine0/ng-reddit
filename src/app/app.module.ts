@@ -6,15 +6,18 @@ import { NgModule } from '@angular/core';
 import { SubredditService } from './subreddit.service';
 
 import { AppComponent } from './app.component';
-import { PostComponent } from './subreddit/post/post.component';
+import { PostComponent } from './post/post.component';
 import { SubredditComponent } from './subreddit/subreddit.component';
+import { PostService } from './post.service';
+import { CommentComponent } from './post/comment/comment.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    SubredditComponent
+    SubredditComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { SubredditComponent } from './subreddit/subreddit.component';
     AppRoutingModule
   ],
   providers: [
-    SubredditService
+    SubredditService,
+    PostService
   ],
   bootstrap: [AppComponent]
 })
