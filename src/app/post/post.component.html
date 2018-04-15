@@ -1,0 +1,38 @@
+<div *ngIf="post">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+                <a routerLink="/r/{{ subredditId }}">
+                    /r/{{ subredditId }}
+                </a>
+            </li>
+        </ol>
+    </nav>
+    <div class="jumbotron">
+
+        <div class="row">
+            <div class="col justify-self-start" *ngIf="!post[0].data.children[0].data.is_self">
+                <div class="row">
+                    <small>/r/{{ post[0].data.children[0].data.subreddit }}</small>
+                </div>
+                <div class="row">
+                    <a href="{{ post[0].data.children[0].data.url }}">
+                        <img src="{{ post[0].data.children[0].data.thumbnail }}" alt="">
+                    </a>
+                </div>
+            </div>
+            <div class="col justify-self-center">
+                <div class="d-flex w-100 justify-content-between">
+                        <h4>{{ post[0].data.children[0].data.title }}</h4>
+                        <small>{{ post[0].data.children[0].data.created_utc | date:'short' }}</small>
+                </div>
+                <small>{{ post[0].data.children[0].data.author }}</small>
+                <br>
+                <div *ngIf="post[0].data.children[0].data.is_self">
+                    <p>{{ post[0].data.children[0].data.selftext }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-comment [comment]="post[1]"></app-comment>
+</div>

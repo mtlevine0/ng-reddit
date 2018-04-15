@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-md">
+    <div class="list-group">
+      <a class="list-group-item list-group-item-action flex-column align-items-start"
+        *ngFor="let child of comment.data.children"
+      >
+        <div class="d-flex w-100 justify-content-between">
+          <small class="mb-1">{{ child.data.author }}</small>
+          <small>{{ child.data.created_utc | date:'short' }}</small>
+        </div>
+        <p class="mb-1">{{ child.data.body }}</p>
+        <div *ngIf="child.data.replies">
+          <app-comment [comment]="child.data.replies"></app-comment>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
